@@ -6,6 +6,7 @@ const passport = require('./config/ppConfig');
 const flash = require('connect-flash');
 const SECRET_SESSION = process.env.SECRET_SESSION;
 const app = express();
+const axios = require('axios')
 
 // isLoggedIn middleware
 const isLoggedIn = require('./middleware/isLoggedIn');
@@ -46,11 +47,11 @@ app.use((req, res, next) => {
 });
 
 app.get('/driverSearch', (req, res) => {
-  let search = req.query.q;
-  axios.get(`http://ergast.com/api/f1/drivers`)
+  let searchUrl = "http://ergast.com/api/f1/drivers"
+  axios.get(searchUrl)
       .then((searchResults) => {
-          let results = searchResults.data.Search;
-          res.render('driverSearch', { results, search });
+          let drivers = searchResults.MRdData.DriverTable.Driver;
+          res.render('driverSearch', { drivers, search });
       })
 })
 
