@@ -45,6 +45,17 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/driverSearch', (req, res) => {
+  let search = req.query.q;
+  axios.get(`http://ergast.com/api/f1/drivers`)
+      .then((searchResults) => {
+          let results = searchResults.data.Search;
+          res.render('driverSearch', { results, search });
+      })
+})
+
+
+
 app.get('/', (req, res) => {
   console.log(res.locals.alerts);
   res.render('index', { alerts: res.locals.alerts });
