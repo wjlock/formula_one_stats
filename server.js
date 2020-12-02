@@ -57,9 +57,10 @@ app.get('/driverSearch', (req, res) => {
       'x-rapidapi-host': 'api-formula-1.p.rapidapi.com'
     }
   };
-  axios.request(options).then(function (response) {
-    let drivers = options.response
-    res.render('driverSearch', {data: drivers});
+  axios.request(options).then(function ({data}) {
+    const {response} = data;
+    console.log(response)
+    res.render('driverSearch', {data: response});
   }).catch(function (error) {
     console.error(error);
   });
@@ -68,27 +69,20 @@ app.get('/teamSearch', (req, res) => {
   var options = {
     method: 'GET',
     url: 'https://api-formula-1.p.rapidapi.com/teams',
-    params: {search: 'Lewi'},
+    params: {search: 'Merc'},
     headers: {
       'x-rapidapi-key': API_KEY,
       'x-rapidapi-host': 'api-formula-1.p.rapidapi.com'
     }
   };
-  axios.request(options).then(function (response) {
-    let teams = options.response
-    res.render('teamSearch', {data: teams});
+  axios.request(options).then(function ({data}) {
+    const {response} = data;
+    console.log(response)
+    res.render('driverSearch', {data: response});
   }).catch(function (error) {
     console.error(error);
   });
 })
-// app.get('/teamSearch', (req, res) => {
-//   let searchUrl = "http://ergast.com/api/f1/constructors"
-//   axios.get(searchUrl)
-//       .then((searchResults) => {
-//           let teams = searchResults.MRData;
-//           res.render('teamSearch', { teams: teams });
-//       })
-// })
 
 
 
