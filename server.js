@@ -7,6 +7,7 @@ const flash = require('connect-flash');
 const SECRET_SESSION = process.env.SECRET_SESSION;
 const app = express();
 const axios = require('axios')
+const API_KEY = process.env.API_KEY;
 
 // isLoggedIn middleware
 const isLoggedIn = require('./middleware/isLoggedIn');
@@ -47,22 +48,47 @@ app.use((req, res, next) => {
 });
 
 app.get('/driverSearch', (req, res) => {
-  let searchUrl = "http://ergast.com/api/f1/drivers"
-  axios.get(searchUrl)
-      .then((searchResults) => {
-          let drivers = searchResults.data;
-          console.log(drivers)
-          res.render('driverSearch', { drivers: drivers });
-      })
+  var options = {
+    method: 'GET',
+    url: 'https://api-formula-1.p.rapidapi.com/drivers',
+    params: {search: 'Lewi'},
+    headers: {
+      'x-rapidapi-key': API_KEY,
+      'x-rapidapi-host': 'api-formula-1.p.rapidapi.com'
+    }
+  };
+  axios.request(options).then(function (response) {
+    let drivers = options.response
+    res.render('driverSearch', {data: drivers});
+  }).catch(function (error) {
+    console.error(error);
+  });
 })
 app.get('/teamSearch', (req, res) => {
-  let searchUrl = "http://ergast.com/api/f1/constructors"
-  axios.get(searchUrl)
-      .then((searchResults) => {
-          let teams = searchResults.MRData;
-          res.render('teamSearch', { teams: teams });
-      })
+  var options = {
+    method: 'GET',
+    url: 'https://api-formula-1.p.rapidapi.com/teams',
+    params: {search: 'Lewi'},
+    headers: {
+      'x-rapidapi-key': API_KEY,
+      'x-rapidapi-host': 'api-formula-1.p.rapidapi.com'
+    }
+  };
+  axios.request(options).then(function (response) {
+    let teams = options.response
+    res.render('teamSearch', {data: teams});
+  }).catch(function (error) {
+    console.error(error);
+  });
 })
+// app.get('/teamSearch', (req, res) => {
+//   let searchUrl = "http://ergast.com/api/f1/constructors"
+//   axios.get(searchUrl)
+//       .then((searchResults) => {
+//           let teams = searchResults.MRData;
+//           res.render('teamSearch', { teams: teams });
+//       })
+// })
 
 
 
