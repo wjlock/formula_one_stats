@@ -50,16 +50,17 @@ app.get('/driverSearch', (req, res) => {
   let searchUrl = "http://ergast.com/api/f1/drivers"
   axios.get(searchUrl)
       .then((searchResults) => {
-          let drivers = searchResults.MRData;
-          res.render('driverSearch', { drivers, drivers });
+          let drivers = searchResults.data;
+          console.log(drivers)
+          res.render('driverSearch', { drivers: drivers });
       })
 })
 app.get('/teamSearch', (req, res) => {
   let searchUrl = "http://ergast.com/api/f1/constructors"
   axios.get(searchUrl)
       .then((searchResults) => {
-          let drivers = searchResults.MRData;
-          res.render('driverSearch', { drivers, search });
+          let teams = searchResults.MRData;
+          res.render('teamSearch', { teams: teams });
       })
 })
 
