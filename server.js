@@ -78,12 +78,29 @@ app.get('/teamSearch', (req, res) => {
   axios.request(options).then(function ({data}) {
     const {response} = data;
     console.log(response)
-    res.render('driverSearch', {data: response});
+    res.render('teamSearch', {data: response});
   }).catch(function (error) {
     console.error(error);
   });
 })
-
+app.get('/circuitSearch', (req, res) => {
+  var options = {
+    method: 'GET',
+    url: 'https://api-formula-1.p.rapidapi.com/circuits',
+    params: {search: 'Monz'},
+    headers: {
+      'x-rapidapi-key': API_KEY,
+      'x-rapidapi-host': 'api-formula-1.p.rapidapi.com'
+    }
+  };
+  axios.request(options).then(function ({data}) {
+    const {response} = data;
+    console.log(response)
+    res.render('circuitSearch', {data: response});
+  }).catch(function (error) {
+    console.error(error);
+  });
+})
 
 
 app.get('/', (req, res) => {
