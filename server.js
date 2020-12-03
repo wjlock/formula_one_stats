@@ -51,7 +51,7 @@ app.get('/driverSearch', (req, res) => {
   var options = {
     method: 'GET',
     url: 'https://api-formula-1.p.rapidapi.com/drivers',
-    params: {search: 'Lewi'},
+    params: {search: req.query.q},
     headers: {
       'x-rapidapi-key': API_KEY,
       'x-rapidapi-host': 'api-formula-1.p.rapidapi.com'
@@ -69,7 +69,7 @@ app.get('/teamSearch', (req, res) => {
   var options = {
     method: 'GET',
     url: 'https://api-formula-1.p.rapidapi.com/teams',
-    params: {search: 'Merc'},
+    params: {search: req.query.q},
     headers: {
       'x-rapidapi-key': API_KEY,
       'x-rapidapi-host': 'api-formula-1.p.rapidapi.com'
@@ -78,7 +78,7 @@ app.get('/teamSearch', (req, res) => {
   axios.request(options).then(function ({data}) {
     const {response} = data;
     console.log(response)
-    res.render('teamSearch', {data: response});
+    res.render('Search', {data: response});
   }).catch(function (error) {
     console.error(error);
   });
@@ -87,7 +87,7 @@ app.get('/circuitSearch', (req, res) => {
   var options = {
     method: 'GET',
     url: 'https://api-formula-1.p.rapidapi.com/circuits',
-    params: {search: 'Monz'},
+    params: {search: req.query.q},
     headers: {
       'x-rapidapi-key': API_KEY,
       'x-rapidapi-host': 'api-formula-1.p.rapidapi.com'
