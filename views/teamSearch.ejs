@@ -1,4 +1,10 @@
-<h1>Here is a list of all teams!</h1>
+<h1>Here is a list of Teams based on your search!</h1>
 <% data.forEach((obj) => { %>
-    <h2><%= obj.id %></h2>
+    <h1><%= obj.name %></h1>
+    <img src="<%= obj.logo %> ">
+    <p>President: <%= obj.president %></p>
+    <p>Director: <%= obj.director %></p>
+    <p>Technical Manager: <%= obj.technical_manager %></p>
+    <p>Engine: <%= obj.engine %></p>
+    <p>Tires: <%= obj.tyres %></p>
     <% }) %> 

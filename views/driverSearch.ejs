@@ -1,4 +1,7 @@
-<h1>Here is a list of all drivers!</h1>
+<h1>Here is a list of Circuits based on your search!</h1>
 <% data.forEach((obj) => { %>
-    <h2><%= obj.id %></h2>
+    <h1><%= obj.name %></h1>
+    <img src="<%= obj.image %> ">
+    <p>Nationality: <%= obj.nationality %></p>
+    <p>Birth Date: <%= obj.birthdate %></p>
     <% }) %> 
