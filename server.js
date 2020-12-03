@@ -78,7 +78,7 @@ app.get('/teamSearch', (req, res) => {
   axios.request(options).then(function ({data}) {
     const {response} = data;
     console.log(response)
-    res.render('Search', {data: response});
+    res.render('teamSearch', {data: response});
   }).catch(function (error) {
     console.error(error);
   });

@@ -1,4 +1,11 @@
-<h1>Here is a list of all circuits!</h1>
+<h1>Here is a list of Circuits based on your search!</h1>
 <% data.forEach((obj) => { %>
-    <h2><%= obj.id %></h2>
+    <h1><%= obj.name %></h1>
+    <img src="<%= obj.image %> ">
+    <h2><%= obj.competition.name %></h2>
+    <p>Length: <%= obj.length %></p>
+    <p>Capacity: <%= obj.capacity %></p>
+    <p>Date Opened: <%= obj.opened %></p>
+    <p>Current Owner: <%= obj.owner %></p>
+
     <% }) %> 
