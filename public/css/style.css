@@ -4,7 +4,36 @@ nav ul li {
   margin-right: .3em;
 }
 
-h1 {
-  color: steelblue;
+h2 {
+  color: whitesmoke;
   font-family: 'Racing Sans One', cursive;
+  -webkit-text-stroke-width: .3px;
+  -webkit-text-stroke-color: black;
+}
+body {
+  background-image: url('https://www.imgbase.info/images/safe-wallpapers/sports/formula_1/29805_formula_1_f1_starting_grid.jpg');
+}
+a {
+  display: flex;
+  justify-content: right;
+  color: white;
+  font-size: 20px;
+  -webkit-text-stroke-width: .3px;
+  -webkit-text-stroke-color: black;
+}
+ul {
+  display: flex;
+  justify-content: flex-end;
+  font-family: 'Racing Sans One', cursive;
+  
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  font-family: 'Racing Sans One', cursive;
+  font-size: 50px;
+  margin-top: 0px;
+}
+.page {
+  display: flex;
 }
