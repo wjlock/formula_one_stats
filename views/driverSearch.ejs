@@ -4,4 +4,8 @@
     <img src="<%= obj.image %> ">
     <p>Nationality: <%= obj.nationality %></p>
     <p>Birth Date: <%= obj.birthdate %></p>
+    <form action="/dreamSeason" method="POST">
+        <input type="hidden" name="driverName" value="<%= obj.name %>">
+        <input type="submit" value="Add to Dream Season">
+    </form>
     <% }) %> 

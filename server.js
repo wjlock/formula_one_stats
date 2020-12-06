@@ -102,6 +102,17 @@ app.get('/circuitSearch', (req, res) => {
   });
 })
 
+app.post('/dreamSeason', (req, res) => {
+  db.dreamseason.create(req.body).then((createdFave) => {
+    res.redirect('/faves')
+  })
+})
+app.get('/dreamSeason', (req, res) => {
+  db.dreamseason.findAll().then((foundFaves) => {
+    res.render('faves', { faves: foundFaves })
+  })
+
+})
 
 app.get('/', (req, res) => {
   console.log(res.locals.alerts);

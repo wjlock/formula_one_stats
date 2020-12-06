@@ -74,3 +74,9 @@ h1 {
   -webkit-text-stroke-width: .3px;
   -webkit-text-stroke-color: black;
 }
+img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
