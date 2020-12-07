@@ -49,6 +49,24 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
 });
+app.get('/driverRankings', (req, res) => {
+  var options = {
+    method: 'GET',
+    url: 'https://api-formula-1.p.rapidapi.com/rankings/drivers',
+    params: {season: req.query.q},
+    headers: {
+      'x-rapidapi-key': API_KEY,
+      'x-rapidapi-host': 'api-formula-1.p.rapidapi.com'
+    }
+  };
+  axios.request(options).then(function ({data}) {
+    const {response} = data;
+    console.log(response)
+    res.render('driverRankings', {data: response});
+  }).catch(function (error) {
+    console.error(error);
+  });
+})
 
 app.get('/driverSearch', (req, res) => {
   var options = {

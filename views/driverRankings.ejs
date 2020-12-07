@@ -1,0 +1,9 @@
+<h1>Here are the rankings for the selected year.</h1>
+<% data.forEach((obj) => { %>
+    <div class="rankings">
+        <p><%= obj.position %>--</p><br>
+        <p><%= obj.driver.name %>--</p>
+        <p><%= obj.team.name %></p>
+    </div>
+
+    <% }) %>    

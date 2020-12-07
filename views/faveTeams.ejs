@@ -3,8 +3,9 @@
 
 <% faveTeams.forEach((obj) => { %>
     <p><%= obj.name %> </p>
-    <img src="<%= obj.logo %> ">
-    
+    <img src="<%= obj.logo %>">
+    <%= console.log(obj.logo) %>
+
     <form action="/faveTeams/<%= obj.name %>?_method=DELETE" method="POST">
         <input class="btn-danger" type="submit" value="Remove from favs" >
         <input type="hidden" value="<%= obj.name %>">
