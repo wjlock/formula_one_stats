@@ -2,10 +2,12 @@
 <% data.forEach((obj) => { %>
     <h1><%= obj.name %></h1>
     <img src="<%= obj.image %> ">
-    <p>Nationality: <%= obj.nationality %></p>
-    <p>Birth Date: <%= obj.birthdate %></p>
-    <form action="/faveDrivers" method="POST">
-        <input type="hidden" name="name" value="<%= obj.name %>">
-        <input type="submit" value="Add to Favorite Drivers">
-    </form>
+    <div class="driverInfo">
+        <p>Nationality: <%= obj.nationality %></p>
+        <p>Birth Date: <%= obj.birthdate %></p>
+        <form action="/faveDrivers" method="POST">
+            <input type="hidden" name="name" value="<%= obj.name %>">
+            <input type="submit" value="Add to Favorite Drivers">
+        </form>
+    </div>
     <% }) %> 

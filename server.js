@@ -9,6 +9,7 @@ const app = express();
 const axios = require('axios')
 const API_KEY = process.env.API_KEY;
 const db = require('./models');
+const methodOverride = require('method-override');
 
 // isLoggedIn middleware
 const isLoggedIn = require('./middleware/isLoggedIn');
@@ -19,6 +20,7 @@ app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(layouts);
+app.use(methodOverride('_method'));
 
 // secret: What we actually will be giving the user on our site as a session cookie
 // resave: Save the session even if it's modified, make this false
@@ -138,44 +140,16 @@ app.get('/faveDrivers', (req, res) => {
   })
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.delete('/faveCircuits', (req, res) => {
+  const name = req.body
+  db.circuit.findOne({
+    where: { name }
+  }).then((foundCircuit) => {
+    foundCircuit.destroy().then(() => {
+      res.redirect('/faveCircuits')
+    })
+  })
+})
 
 
 app.get('/', (req, res) => {
@@ -192,9 +166,9 @@ app.get('/profile', isLoggedIn, (req, res) => {
 app.use('/auth', require('./routes/auth'));
 
 // Route to handle bad links/URLs
-app.use(function (req, res) {
-  res.status(404).render('error');
-});
+// app.use(function (req, res) {
+//   res.status(404).render('error');
+// });
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {

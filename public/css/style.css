@@ -23,8 +23,11 @@ p {
 
 }
 body {
-  background-image: url('https://www.imgbase.info/images/safe-wallpapers/sports/formula_1/29805_formula_1_f1_starting_grid.jpg');
+  background-image: url('https://formularapida.net/wp-content/uploads/2019/02/AP-1YDGC5N951W11_hires_jpeg_24bit_rgb_news.jpg');
   max-width:100%;height:auto;
+  background-repeat: no-repeat;
+  background-size: auto;
+
 }
 a {
   display: flex;
@@ -43,9 +46,12 @@ ul {
 h1 {
   display: flex;
   justify-content: center;
-  font-family: 'Racing Sans One', cursive;
   font-size: 4vw;
   margin-top: 0px;
+  color: whitesmoke;
+  font-family: 'Racing Sans One', cursive;
+  -webkit-text-stroke-width: .4px;
+  -webkit-text-stroke-color: black;
 }
 .page {
   display: flex;
@@ -85,4 +91,55 @@ img {
   .driver, .circuit, .team {
     width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
   }
+}
+input[type=submit] {
+  padding:5px 15px; 
+  background:red;
+  border:.5px solid;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+  font-family: 'Racing Sans One', cursive;
+}
+.driver {
+  background-color: #871F78;
+  border: .5px solid black;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+
+}
+.team {
+  background-color: #871F78;
+  border: .5px solid black;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.circuit {
+  background-color: #871F78;
+  border: .5px solid black;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.circuitInfo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.driverInfo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+}
+.teamInfo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
 }

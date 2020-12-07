@@ -1,11 +1,16 @@
 <h1>Here is a list of Circuits based on your search!</h1>
 <% data.forEach((obj) => { %>
     <h1><%= obj.name %></h1>
-    <img src="<%= obj.image %> ">
-    <h2><%= obj.competition.name %></h2>
-    <p>Length: <%= obj.length %></p>
-    <p>Capacity: <%= obj.capacity %></p>
-    <p>Date Opened: <%= obj.opened %></p>
-    <p>Current Owner: <%= obj.owner %></p>
-
-    <% }) %> 
+    <img style="background-color: aqua;" src="<%= obj.image %>" >
+    <div class="circuitInfo">
+        <h2><%= obj.competition.name %></h2>
+        <p>Length: <%= obj.length %></p>
+        <p>Capacity: <%= obj.capacity %></p>
+        <p>Date Opened: <%= obj.opened %></p>
+        <p>Current Owner: <%= obj.owner %></p>
+        <form action="/faveCircuits" method="POST">
+            <input type="hidden" name="name" value="<%= obj.name %>">
+            <input type="submit" value="Add to Favorite Circuits">
+        </form>
+    </div>
+    <% }) %>    

@@ -2,9 +2,15 @@
 <% data.forEach((obj) => { %>
     <h1><%= obj.name %></h1>
     <img src="<%= obj.logo %> ">
-    <p>President: <%= obj.president %></p>
-    <p>Director: <%= obj.director %></p>
-    <p>Technical Manager: <%= obj.technical_manager %></p>
-    <p>Engine: <%= obj.engine %></p>
-    <p>Tires: <%= obj.tyres %></p>
+    <div class="teamInfo">
+        <p>President: <%= obj.president %></p>
+        <p>Director: <%= obj.director %></p>
+        <p>Technical Manager: <%= obj.technical_manager %></p>
+        <p>Engine: <%= obj.engine %></p>
+        <p>Tires: <%= obj.tyres %></p>
+        <form action="/faveTeams" method="POST">
+            <input type="hidden" name="name" value="<%= obj.name %>">
+            <input type="submit" value="Add to Favorite Teams">
+        </form>
+    </div>
     <% }) %> 
