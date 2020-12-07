@@ -24,12 +24,13 @@ p {
 }
 body {
   background-image: url('https://www.imgbase.info/images/safe-wallpapers/sports/formula_1/29805_formula_1_f1_starting_grid.jpg');
+  max-width:100%;height:auto;
 }
 a {
   display: flex;
   justify-content: right;
   color: white;
-  font-size: 20px;
+  font-size: 1.2vw;
   -webkit-text-stroke-width: .3px;
   -webkit-text-stroke-color: black;
 }
@@ -43,7 +44,7 @@ h1 {
   display: flex;
   justify-content: center;
   font-family: 'Racing Sans One', cursive;
-  font-size: 50px;
+  font-size: 4vw;
   margin-top: 0px;
 }
 .page {
@@ -79,4 +80,9 @@ img {
   justify-content: center;
   align-items: center;
   margin: auto;
+}
+@media screen and (max-width: 800px) {
+  .driver, .circuit, .team {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
 }

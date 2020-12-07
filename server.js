@@ -8,6 +8,7 @@ const SECRET_SESSION = process.env.SECRET_SESSION;
 const app = express();
 const axios = require('axios')
 const API_KEY = process.env.API_KEY;
+const db = require('./models');
 
 // isLoggedIn middleware
 const isLoggedIn = require('./middleware/isLoggedIn');
@@ -102,17 +103,80 @@ app.get('/circuitSearch', (req, res) => {
   });
 })
 
-app.post('/dreamSeason', (req, res) => {
-  db.dreamseason.create(req.body).then((createdFave) => {
-    res.redirect('/faves')
+app.post('/faveTeams', (req, res) => {
+  db.team.create(req.body).then((createdteam) => {
+    res.redirect('/faveTeams')
   })
 })
-app.get('/dreamSeason', (req, res) => {
-  db.dreamseason.findAll().then((foundFaves) => {
-    res.render('faves', { faves: foundFaves })
+app.get('/faveTeams', (req, res) => {
+  db.team.findAll().then((foundteams) => {
+    res.render('faveTeams', { faveTeams : foundteams })
   })
+})
 
+
+app.post('/faveCircuits', (req, res) => {
+  db.circuit.create(req.body).then((createdcircuit) => {
+    res.redirect('/faveCircuits')
+  })
 })
+app.get('/faveCircuits', (req, res) => {
+  db.circuit.findAll().then((foundcircuits) => {
+    res.render('faveCircuits', { faveCircuits : foundcircuits })
+  })
+})
+
+
+app.post('/faveDrivers', (req, res) => {
+  db.driver.create(req.body).then((createddriver) => {
+    res.redirect('/faveDrivers')
+  })
+})
+app.get('/faveDrivers', (req, res) => {
+  db.driver.findAll().then((founddrivers) => {
+    res.render('faveDrivers', { faveDrivers : founddrivers })
+  })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.get('/', (req, res) => {
   console.log(res.locals.alerts);
@@ -124,7 +188,13 @@ app.get('/profile', isLoggedIn, (req, res) => {
 });
 
 
+
 app.use('/auth', require('./routes/auth'));
+
+// Route to handle bad links/URLs
+app.use(function (req, res) {
+  res.status(404).render('error');
+});
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
