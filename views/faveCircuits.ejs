@@ -1,9 +1,9 @@
-Your Favorite Circuits
+<h2>Your Favorite Circuits</h2>
 <% faveCircuits.forEach((obj) => { %>
     <p><%= obj.name %> </p>
-    <form action="/faveCircuits" method="PUT">
-        <input type="hidden" name="name" value="<%= obj.name %>">
-        <input type="hidden" name="_method" value="delete"/>
-        <input type="submit" value="Delete Favorite">
+    <img src="<%= obj.image %> ">
+    <form action="/faveCircuits/<%= obj.name %>?_method=DELETE" method="POST">
+        <input class="btn-danger" type="submit" value="Remove from favs" >
+        <input type="hidden" value="<%= obj.name %>">
     </form>
 <% }) %>

@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      models.user.hasMany(models.circuit)
+      models.user.hasMany(models.driver)
+      models.user.hasMany(models.team)
     }
   };
   user.init({

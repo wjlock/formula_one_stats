@@ -1,5 +1,10 @@
-Your Favorite Teams
+<h2>Your Favorite Teams</h2>
+
 
 <% faveTeams.forEach((obj) => { %>
     <p><%= obj.name %> </p>
+    <form action="/faveTeams/<%= obj.name %>?_method=DELETE" method="POST">
+        <input class="btn-danger" type="submit" value="Remove from favs" >
+        <input type="hidden" value="<%= obj.name %>">
+    </form>
 <% }) %>

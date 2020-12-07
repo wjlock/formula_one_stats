@@ -140,8 +140,8 @@ app.get('/faveDrivers', (req, res) => {
   })
 })
 
-app.delete('/faveCircuits', (req, res) => {
-  const name = req.body
+app.delete('/faveCircuits/:name', (req, res) => {
+  const name = req.params.name
   db.circuit.findOne({
     where: { name }
   }).then((foundCircuit) => {
