@@ -5,6 +5,8 @@
     <div class="driverInfo">
         <p>Nationality: <%= obj.nationality %></p>
         <p>Birth Date: <%= obj.birthdate %></p>
+        <p>Current Team:</p>
+        <p><%= obj.teams[0].team.name %></p>
         <form action="/faveDrivers" method="POST">
             <input type="hidden" name="name" value="<%= obj.name %>">
             <input type="submit" value="Add to Favorite Drivers">

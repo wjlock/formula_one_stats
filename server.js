@@ -150,6 +150,26 @@ app.delete('/faveCircuits/:name', (req, res) => {
     })
   })
 })
+app.delete('/faveDrivers/:name', (req, res) => {
+  const name = req.params.name
+  db.driver.findOne({
+    where: { name }
+  }).then((foundDriver) => {
+    foundDriver.destroy().then(() => {
+      res.redirect('/faveDrivers')
+    })
+  })
+})
+app.delete('/faveTeams/:name', (req, res) => {
+  const name = req.params.name
+  db.team.findOne({
+    where: { name }
+  }).then((foundTeam) => {
+    foundTeam.destroy().then(() => {
+      res.redirect('/faveTeams')
+    })
+  })
+})
 
 
 app.get('/', (req, res) => {
@@ -166,9 +186,9 @@ app.get('/profile', isLoggedIn, (req, res) => {
 app.use('/auth', require('./routes/auth'));
 
 // Route to handle bad links/URLs
-// app.use(function (req, res) {
-//   res.status(404).render('error');
-// });
+app.use(function (req, res) {
+  res.status(404).render('error');
+});
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {

@@ -5,7 +5,7 @@
  Searching for teams allows you to see their logo, head staff names, engine, and tire choice.
  Searching for tracks allows you to see the track layout, length, owners, and Grad Prix name.
 
- 
+
 
 
 
@@ -15,40 +15,3 @@ Using the 'W' and 'S' keys, move your paddle up and down. The person who scores 
 
 Click the "Play" button to get started. If you need to reset the table, click the 'reset' button. The score totals are at the bottom of the page.
 
-
-## Steps to Install on local computer
-1. Go to [repo](https://github.com/wjlock/pong-revisited) on Github profile
-2. `fork` and `clone` repo
-3. Clone to local machine
-```text
-git clone https://github.com/wjlock/pong-revisited.git
-```
-4. Go to `pong-revisted` directory
-5. Open `index.html` in browser
-```text
-open index.html
-```
-
-## Roadmap
-
-Items to add in the future, in no particular order:
-
-1.) Difficulty levels
-2.) Rounds
-3.) center Net
-
-
-| Functions | Description |
-| ----------- | ----------- |
-| `handleWallCollisionHuman` | Handle paddle collision with upper and lower bounds|
-| `detectPaddleHit` | Handle paddle/ball collision |
-| `computerAI` | Handle movement of computer paddle|
-| `checkForPoint` | On each game tick, checks if a point was scored |
-| `checkForWin` | On each game tick, checks if there is a winner|
-| `howToPlay` | Handles "how to play" popup |
-| `launchBall` | launches the ball in a randow y direction based on last point scored|
-| `resetBoard` | Function to put board back to inital state after button click |
-
-## Technologies Used
-
-This project was built using HTML, CSS, and Javascript.

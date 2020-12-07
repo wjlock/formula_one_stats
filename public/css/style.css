@@ -1,7 +1,8 @@
 nav ul li {
   text-decoration: none;
   display: inline-block;
-  margin-right: .3em;
+  margin-right: .85em;
+
 }
 
 h2 {
@@ -27,6 +28,10 @@ body {
   max-width:100%;height:auto;
   background-repeat: no-repeat;
   background-size: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
 }
 a {
@@ -142,4 +147,8 @@ input[type=submit] {
   flex-direction: column;
   align-items: center;
 
+}
+.circuitFavInfo {
+  display: flex;
+  justify-content: center;
 }
