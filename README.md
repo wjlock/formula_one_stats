@@ -16,3 +16,12 @@ Note: To search for rankings you must input a year.
 ![ScreenShot](https://i.postimg.cc/RV3T3gP8/Screen-Shot-2020-12-10-at-10-10-55-PM.png)
 ![ScreenShot](https://i.postimg.cc/h4ZrPk0T/Screen-Shot-2020-12-10-at-10-11-13-PM.png)
 ![ScreenShot](https://i.postimg.cc/D0NdjGzB/Screen-Shot-2020-12-10-at-10-11-27-PM.png)
+
+# Steps to install
+
+- Fork and Clone github rep to your machine
+- Run npm install
+- Add API key to env file (API used: https://rapidapi.com/api-sports/api/api-formula-1)
+- Run sequelize db:create formula-one-stats_development
+- run command sequlize db:migrate to perform necessary migrations
+```
