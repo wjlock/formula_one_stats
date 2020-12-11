@@ -189,7 +189,6 @@ app.delete('/faveTeams/:name', (req, res) => {
   })
 })
 
-
 app.get('/', (req, res) => {
   console.log(res.locals.alerts);
   res.render('index', { alerts: res.locals.alerts });
